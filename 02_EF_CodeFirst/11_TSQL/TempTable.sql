@@ -83,3 +83,50 @@ https://stackoverflow.com/questions/21011276/difference-between-temptable-and-te
 #table  refers to a local  (visible to only the user who created it) temporary table. 
 ##table refers to a global (visible to all users) temporary table
 */
+
+    qryStatisticsSql_1 =  'CREATE TABLE ##CheckedFolderIds (FolderId int NOT NULL, Parent int NOT NULL, IsTopLevel int NULL)'+#13+
+                          'ALTER TABLE [##CheckedFolderIds] ADD PRIMARY KEY CLUSTERED (FolderId) ON [PRIMARY]';
+    qryStatisticsSql_2 = 'INSERT ##CheckedFolderIds SELECT FolderId, Parent, CAST(0 AS int) FROM _Folders WHERE FolderId IN (%s)';
+                          //STEP 3 : Get top level folders...
+    qryStatisticsSql_3 = 'UPDATE t1 SET Parent = t2.Parent, IsTopLevel = 1 FROM ##CheckedFolderIds t1 INNER JOIN _Folders t2 ON t1.FolderId = t2.FolderId'+#13+
+                         'UPDATE t1 SET IsTopLevel = 0 FROM ##CheckedFolderIds t1 INNER JOIN ##CheckedFolderIds t2 ON t1.Parent = t2.FolderId'+#13+
+                         'SELECT FolderId, Parent INTO ##TopLevelFolders FROM ##CheckedFolderIds WHERE IsTopLevel = 1';
+
+qryProfileFiledsToExportSql_0 = //'IF OBJECT_ID(''##AllDocInfo'') IS NULL SELECT DocId INTO ##AllDocInfo FROM _Docs'+#13+
+                                  'IF OBJECT_ID(''tempdb..##ProfileFieldHeadings'') IS NOT NULL DROP TABLE ##ProfileFieldHeadings';
+      qryProfileFiledsToExportSql_1 =
+                          'select FldId,'+#13+
+                          'CsvHeading AS Heading,'+#13+
+                          'Type_ AS FldType'+#13+
+                          'INTO ##ProfileFieldHeadings'+#13+
+                          'FROM _PropFields WHERE Isnull(Flags, 0) & 0xFFFFFDD1 = 0 AND'+#13+
+                          'Type_ IN (1, 2, 3, 4, 5, 6, 7, 8, 9) AND'+#13+
+                          'FldId <> :DocDateFldId AND'+#13+
+                          'FldId IN ('+#13+
+                          'SELECT DISTINCT FldId FROM _PropDocs WHERE DocId IN'+#13+
+                          '(SELECT DocId FROM ##AllDocInfo) AND'+#13+
+                          'ISNULL(ValId, 0) = 0'+#13+
+                          ')';
+      qryProfileFiledsToExportSql_1b =
+                          'select FldId,'+#13+
+                          'CsvHeading AS Heading,'+#13+
+                          'Type_ AS FldType'+#13+
+                          'INTO ##ProfileFieldHeadings'+#13+
+                          'FROM _PropFields WHERE Isnull(Flags, 0) & 0xFFFFFDD1 = 0 AND'+#13+
+                          'Type_ IN (1, 2, 3, 4, 5, 6, 7, 8, 9) AND'+#13+
+                          'FldId <> :DocDateFldId AND'+#13+
+                          'FldId IN ('+#13+
+                          'SELECT DISTINCT FldId FROM _PropDocs WHERE DocId IN'+#13+
+                          '(SELECT DocId FROM ##AllDocInfo)'+#13+
+                          ')';
+      qryProfileFiledsToExportSql_2 =
+                          //Update blank Headings...
+                          'UPDATE t1 SET Heading = t2.ColHeading FROM'+#13+
+                          '##ProfileFieldHeadings t1 INNER JOIN'+#13+
+                          '_PropFields t2 ON t1.FldId = t2.FldId AND'+#13+
+                          'LEN(ISNULL(Heading, '''')) = 0';
+      qryProfileFiledsToExportSql_3 =
+                          'UPDATE t1 SET Heading = t2.Desc_ FROM'+#13+
+                          '##ProfileFieldHeadings t1 INNER JOIN'+#13+
+                          '_PropFields t2 ON t1.FldId = t2.FldId AND'+#13+
+                          'LEN(ISNULL(Heading, '''')) = 0';
