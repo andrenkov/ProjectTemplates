@@ -76,3 +76,10 @@ NormalExit:
 ExitWithErrors:
   RETURN 0
 
+--#################################################################
+/*
+https://stackoverflow.com/questions/21011276/difference-between-temptable-and-temptable
+
+#table  refers to a local  (visible to only the user who created it) temporary table. 
+##table refers to a global (visible to all users) temporary table
+*/
