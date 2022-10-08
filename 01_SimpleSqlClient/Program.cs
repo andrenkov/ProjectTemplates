@@ -1,8 +1,5 @@
 ﻿using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;//install from Nuget
-using System.Drawing.Drawing2D;
-using System.Xml.Linq;
+using System.Data.SqlClient;//must install from Nuget
 
 ///
 ///https://www.dotnetperls.com/sqlclient
