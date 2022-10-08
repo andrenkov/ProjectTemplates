@@ -84,6 +84,8 @@ https://stackoverflow.com/questions/21011276/difference-between-temptable-and-te
 ##table refers to a global (visible to all users) temporary table
 */
 
+/*
+
     qryStatisticsSql_1 =  'CREATE TABLE ##CheckedFolderIds (FolderId int NOT NULL, Parent int NOT NULL, IsTopLevel int NULL)'+#13+
                           'ALTER TABLE [##CheckedFolderIds] ADD PRIMARY KEY CLUSTERED (FolderId) ON [PRIMARY]';
     qryStatisticsSql_2 = 'INSERT ##CheckedFolderIds SELECT FolderId, Parent, CAST(0 AS int) FROM _Folders WHERE FolderId IN (%s)';
@@ -130,3 +132,4 @@ qryProfileFiledsToExportSql_0 = //'IF OBJECT_ID(''##AllDocInfo'') IS NULL SELECT
                           '##ProfileFieldHeadings t1 INNER JOIN'+#13+
                           '_PropFields t2 ON t1.FldId = t2.FldId AND'+#13+
                           'LEN(ISNULL(Heading, '''')) = 0';
+*/
