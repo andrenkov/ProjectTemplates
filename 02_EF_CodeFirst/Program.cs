@@ -28,10 +28,11 @@ try
     using (School DbCont = new(options))
     {
         //Only if Db from Scratch. Otherwise, EnsureCreatedAsync() will work.
+        /*
         WriteLine("Deleting Db");
         bool deleted = await DbCont.Database.EnsureDeletedAsync();
         WriteLine($"Db deleted : {deleted}");
-
+        */
         //Create Db if not created
         WriteLine("Creating Db");
         bool created = await DbCont.Database.EnsureCreatedAsync();
@@ -63,3 +64,18 @@ catch (Exception ex)
 
 //Apply pending migrations
 //myShoolDbContext.Database.Migrate();
+
+//Add new record test
+try
+{
+    using (School DbCont = new(options))
+    {
+        WriteLine("Adding Irina");
+        DbCont.Students.Add(new Student() { FirstName = "Irina", LastName = "Lomakina" });
+        DbCont.SaveChanges();
+    }
+}
+catch (Exception ex)
+{
+    WriteLine($"Error : {ex.Message}");
+}
