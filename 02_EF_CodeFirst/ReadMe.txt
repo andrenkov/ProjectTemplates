@@ -44,8 +44,10 @@ https://www.c-sharpcorner.com/article/using-entity-framework-core/
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 	- To seed data or add validation rules, add : 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
-
-9. Migrations. Install Microsoft.EntityFrameworkCore.Tools first
+#############################################
+Migrations
+#############################################
+9. Install Microsoft.EntityFrameworkCore.Tools first
    DbContext must have a default constructor!!!!!!!!!!!!!!
    Create initial migration and delete the database. The migration will include tables and seeded data.
 
