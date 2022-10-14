@@ -8,4 +8,9 @@
 7. Register the Service to DI. Require:
 	using Microsoft.Extensions.DependencyInjection;
 	using Microsoft.Extensions.Hosting;
-8.
+8. The following is because the service implements three Interfaces as per its Constructor:
+
+        services.AddTransient<ITransientOperation, DefaultOperation>()
+            .AddScoped<IScopedOperation, DefaultOperation>()
+            .AddSingleton<ISingletonOperation, DefaultOperation>()
+            .AddTransient<OperationLogger>())
