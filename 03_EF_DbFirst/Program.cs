@@ -84,6 +84,20 @@ try
             WriteLine(student.FirstName +" "+ student.LastName);
         }
 
+        WriteLine("All courses with student ##################################");
+        var queryJoin = DbContScool.Courses.Join(
+            inner: DbContScool.Students,
+            outerKeySelector: course => course.CourseId,
+            innerKeySelector: student => student.StudentId,
+            resultSelector: (c, s) => new { c.Title, s.FirstName, s.LastName}
+            ).OrderBy(cn => cn.Title);
+
+        foreach (var item in queryJoin)
+        {
+            WriteLine("Course {0} : {1} {2}'", item.Title, item.FirstName, item.LastName);
+        }
+
+
     }
 }
 catch (Exception ex)
