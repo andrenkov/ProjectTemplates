@@ -8,13 +8,15 @@ using static System.Formats.Asn1.AsnWriter;
 /// Each services.Add{LIFETIME}<{SERVICE}> extension method adds (and potentially configures) services.
 /// Configures services and adds them with their corresponding service lifetime.
 /// Calls Build() and assigns an instance of IHost.
+///class MyOperation : ITransientOperation, IScopedOperation, ISingletonOperation
+///It requires all 3 .Add... types
 ///
 using IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices((_, services) =>
         services.AddTransient<ITransientOperation, MyOperation>()
-            .AddScoped<IScopedOperation, MyOperation>()
-            .AddSingleton<ISingletonOperation, MyOperation>()
-            .AddTransient<OperationLoggerSrv>())
+                .AddScoped<IScopedOperation, MyOperation>()
+                .AddSingleton<ISingletonOperation, MyOperation>()
+                .AddTransient<OperationLoggerSrv>())
     .Build();
 
 ///
@@ -38,7 +40,9 @@ static void ExemplifyScoping(IServiceProvider services, string scope)
     using IServiceScope serviceScope = services.CreateScope();
     IServiceProvider provider = serviceScope.ServiceProvider;
 
-    OperationLoggerSrv logger = provider.GetRequiredService<OperationLoggerSrv>();
+    OperationLoggerSrv? logger = null;
+
+    logger = provider.GetRequiredService<OperationLoggerSrv>();
     logger.LogOperations($"{scope}-Call 1 .GetRequiredService<OperationLoggerSrv>()");
     Console.WriteLine("...");
 
