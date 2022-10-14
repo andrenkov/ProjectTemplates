@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02_EF_CodeFirst", "02_EF_Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03_EF_DbFirst", "03_EF_DbFirst\03_EF_DbFirst.csproj", "{A09F3E09-DD30-4E29-BB90-AE5BE16D6133}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_DependencyInjection", "05_DependencyInjection\05_DependencyInjection.csproj", "{10BBA7A5-FD86-496D-9B5C-F5320E999FB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05_DependencyInjection", "05_DependencyInjection\05_DependencyInjection.csproj", "{10BBA7A5-FD86-496D-9B5C-F5320E999FB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07_ BackgroundQueueWorker", "07_ BackgroundQueueWorker\07_ BackgroundQueueWorker.csproj", "{68293E3C-E4A0-400F-AFDE-BDCBE28E3417}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{10BBA7A5-FD86-496D-9B5C-F5320E999FB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10BBA7A5-FD86-496D-9B5C-F5320E999FB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10BBA7A5-FD86-496D-9B5C-F5320E999FB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68293E3C-E4A0-400F-AFDE-BDCBE28E3417}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68293E3C-E4A0-400F-AFDE-BDCBE28E3417}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68293E3C-E4A0-400F-AFDE-BDCBE28E3417}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68293E3C-E4A0-400F-AFDE-BDCBE28E3417}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
