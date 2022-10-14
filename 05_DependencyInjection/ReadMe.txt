@@ -1,4 +1,6 @@
-﻿1. Add  Microsoft.Extensions.Hosting package
+﻿https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection-usage
+
+1. Add  Microsoft.Extensions.Hosting package
 2. Add an interface(s). 
 3. Set the lifetime "Transient" or "Singleton" or "Scoped".
 4. Add a class(es) implementing it (or multiple inheritance).

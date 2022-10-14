@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DependencyInjection
 {
+    /// <summary>
+    /// Base Interface
+    /// </summary>
     public interface IMyOperationInterface
     {
         string OperID { get; } 
