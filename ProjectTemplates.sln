@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03_EF_DbFirst", "03_EF_DbFi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05_DependencyInjection", "05_DependencyInjection\05_DependencyInjection.csproj", "{10BBA7A5-FD86-496D-9B5C-F5320E999FB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07_ BackgroundQueueWorker", "07_ BackgroundQueueWorker\07_ BackgroundQueueWorker.csproj", "{68293E3C-E4A0-400F-AFDE-BDCBE28E3417}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "07_ BackgroundQueueWorker", "07_ BackgroundQueueWorker\07_ BackgroundQueueWorker.csproj", "{68293E3C-E4A0-400F-AFDE-BDCBE28E3417}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12_WebCactusAPI", "12_WebCactusAPI\12_WebCactusAPI.csproj", "{C82DD7D3-024C-44FD-B665-9C7DDEFE331A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{68293E3C-E4A0-400F-AFDE-BDCBE28E3417}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68293E3C-E4A0-400F-AFDE-BDCBE28E3417}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68293E3C-E4A0-400F-AFDE-BDCBE28E3417}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C82DD7D3-024C-44FD-B665-9C7DDEFE331A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C82DD7D3-024C-44FD-B665-9C7DDEFE331A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C82DD7D3-024C-44FD-B665-9C7DDEFE331A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C82DD7D3-024C-44FD-B665-9C7DDEFE331A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
