@@ -1,5 +1,7 @@
 using WebCactusAPI.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace WebCactusAPI.Controllers
 {
@@ -24,6 +26,7 @@ namespace WebCactusAPI.Controllers
             _logger = logger;
         }
 
+        [Authorize(Roles = "Role1")]//for Jwt
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {

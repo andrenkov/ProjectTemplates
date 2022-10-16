@@ -3,6 +3,7 @@ using System.Xml.Linq;
 using System;
 using WebCactusAPI.Models;
 using WebCactusAPI.Services;
+using System.Net.Mime;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -44,6 +45,10 @@ namespace WebCactusAPI.Controllers
         /// <param name="cactus"></param>
         /// <returns></returns>
         [HttpPost]
+        //more optional attributes below
+        [Consumes(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Create(WebCactus cactus)
         {
             // This code will save the cactus and return a result
@@ -68,6 +73,11 @@ namespace WebCactusAPI.Controllers
         /// <param name="cactus"></param>
         /// <returns></returns>
         [HttpPut]
+        //more optional attributes below
+        [Consumes(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Update(int id, WebCactus cactus)
         {
             // This code will update the cactus and return a result
