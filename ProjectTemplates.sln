@@ -23,7 +23,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17_TwilioCli", "17_TwilioCl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "18_Expression", "18_Expression\18_Expression.csproj", "{E6714792-E625-4F75-BB67-028ED98C55BF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PredicateDemo", "PredicateDemo\PredicateDemo\PredicateDemo.csproj", "{3D5D748C-EBEA-4DB4-A268-4B83938B2653}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "19_PredicateDemo", "PredicateDemo\PredicateDemo\19_PredicateDemo.csproj", "{3D5D748C-EBEA-4DB4-A268-4B83938B2653}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "20_NorthWindEfExpression", "PredicateDemo\NorthWindEfExpression\20_NorthWindEfExpression.csproj", "{B97AA342-E2BE-4B52-ADAB-7799EEFC74DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{3D5D748C-EBEA-4DB4-A268-4B83938B2653}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D5D748C-EBEA-4DB4-A268-4B83938B2653}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D5D748C-EBEA-4DB4-A268-4B83938B2653}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B97AA342-E2BE-4B52-ADAB-7799EEFC74DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B97AA342-E2BE-4B52-ADAB-7799EEFC74DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B97AA342-E2BE-4B52-ADAB-7799EEFC74DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B97AA342-E2BE-4B52-ADAB-7799EEFC74DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
