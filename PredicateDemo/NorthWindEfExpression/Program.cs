@@ -13,14 +13,14 @@ DbContextOptions options = new DbContextOptionsBuilder<NorthwindContext>()
 
 using (var db = new NorthwindContext(options))
 {
-    Console.WriteLine("Database Connected");
+    Console.WriteLine("Database Connected!");
     Console.WriteLine();
-    Console.WriteLine("Listing Category Sales");
-    db.Categories.ToList().ForEach(x => Console.WriteLine(x.CategoryName));
+    Console.WriteLine("Listing Category Sales:");
+    db.Categories.ToList().ForEach(x => Console.WriteLine($"Category name - {x.CategoryName}"));
     Console.WriteLine();
-    Console.WriteLine("Listing Products Above Average Prices");
-    db.Products.ToList().ForEach(x => Console.WriteLine(x.ProductName));
+    Console.WriteLine("Listing Products Above Average Prices:");
+    db.Products.ToList().ForEach(x => Console.WriteLine($"Product name - {x.ProductName} unit price {x.UnitPrice}"));
     Console.WriteLine();
-    Console.WriteLine("Listing Territories");
+    Console.WriteLine("Listing Territories:");
     db.Territories.ToList().ForEach(x => Console.WriteLine(x.TerritoryDescription));
 }
